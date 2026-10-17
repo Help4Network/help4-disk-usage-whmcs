@@ -1,0 +1,71 @@
+name: WHMCS adapters and packages
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  adapters:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        php: ['8.3', '8.4']
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: curl, dom, pdo_sqlite
+      - run: python scripts/test.py
+      - run: python scripts/package.py
+      - run: python scripts/package.py --component cpanel
+      - run: python scripts/package.py --component plesk
+  packages:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: ['3.10', '3.13']
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m unittest discover -s tests -v
+  macos-developer:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python -m unittest discover -s tests -v
+  native-source-contract:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: Help4Network/help4-disk-usage-plesk
+          ref: 9fa6ceb59088c8dffba8cc36b77065c7f3eda37c
+          path: native-source
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          extensions: curl, dom, pdo_sqlite
+      - name: Protocol contract against separately pinned native source, not installed Plesk
+        env:
+          H4DU_PLESK_SOURCE: ${{ github.workspace }}/native-source
+        run: php tests/plesk_transport.php

@@ -1,0 +1,304 @@
+{
+  "schema": 1,
+  "imports": [
+    {
+      "backend": "cpanel",
+      "commit": "f1b1769cceded6f6f767122de3f66d8815671f4b",
+      "source": "integrations/whmcs/modules/addons/help4_disk_usage/help4_disk_usage.php",
+      "destination": "modules/addons/help4_disk_usage/help4_disk_usage.php",
+      "category": "runtime",
+      "source_sha256": "29e362f910a711d4e795896629df53a6f8228021b4e31a0c50d782cfd3e920b5",
+      "import_sha256": "29e362f910a711d4e795896629df53a6f8228021b4e31a0c50d782cfd3e920b5"
+    },
+    {
+      "backend": "cpanel",
+      "commit": "f1b1769cceded6f6f767122de3f66d8815671f4b",
+      "source": "integrations/whmcs/modules/addons/help4_disk_usage/hooks.php",
+      "destination": "modules/addons/help4_disk_usage/hooks.php",
+      "category": "runtime",
+      "source_sha256": "c93a6b817e1a1cf7e93a67f0213e3f818987646da27b724e840f3745eef7f26a",
+      "import_sha256": "c93a6b817e1a1cf7e93a67f0213e3f818987646da27b724e840f3745eef7f26a"
+    },
+    {
+      "backend": "cpanel",
+      "commit": "f1b1769cceded6f6f767122de3f66d8815671f4b",
+      "source": "integrations/whmcs/modules/addons/help4_disk_usage/templates/clientarea.tpl",
+      "destination": "modules/addons/help4_disk_usage/templates/clientarea.tpl",
+      "category": "runtime",
+      "source_sha256": "2a210b449da798f74cb1fda135db49119d38b9ee5e602373431ac6cd2dc0638d",
+      "import_sha256": "2a210b449da798f74cb1fda135db49119d38b9ee5e602373431ac6cd2dc0638d"
+    },
+    {
+      "backend": "plesk",
+      "commit": "9fa6ceb59088c8dffba8cc36b77065c7f3eda37c",
+      "source": "integrations/whmcs/modules/addons/help4_disk_usage_plesk/help4_disk_usage_plesk.php",
+      "destination": "modules/addons/help4_disk_usage_plesk/help4_disk_usage_plesk.php",
+      "category": "runtime",
+      "source_sha256": "d63399f02868af18bd0af2f7db3072870bf9ceb452e70dab80c4cc008abac0fd",
+      "import_sha256": "d63399f02868af18bd0af2f7db3072870bf9ceb452e70dab80c4cc008abac0fd"
+    },
+    {
+      "backend": "plesk",
+      "commit": "9fa6ceb59088c8dffba8cc36b77065c7f3eda37c",
+      "source": "integrations/whmcs/modules/addons/help4_disk_usage_plesk/hooks.php",
+      "destination": "modules/addons/help4_disk_usage_plesk/hooks.php",
+      "category": "runtime",
+      "source_sha256": "b450d528a9be824076a1daf1dfc726d737cbc16050397d58cac2184859f6686e",
+      "import_sha256": "b450d528a9be824076a1daf1dfc726d737cbc16050397d58cac2184859f6686e"
+    },
+    {
+      "backend": "plesk",
+      "commit": "9fa6ceb59088c8dffba8cc36b77065c7f3eda37c",
+      "source": "integrations/whmcs/modules/addons/help4_disk_usage_plesk/lib/Health.php",
+      "destination": "modules/addons/help4_disk_usage_plesk/lib/Health.php",
+      "category": "runtime",
+      "source_sha256": "7911d8c30c9083daa7143178f86311a0dc8370aea748372dfee8029a8b19099c",
+      "import_sha256": "7911d8c30c9083daa7143178f86311a0dc8370aea748372dfee8029a8b19099c"
+    },
+    {
+      "backend": "plesk",
+      "commit": "9fa6ceb59088c8dffba8cc36b77065c7f3eda37c",
+      "source": "integrations/whmcs/modules/addons/help4_disk_usage_plesk/lib/Native.php",
+      "destination": "modules/addons/help4_disk_usage_plesk/lib/Native.php",
+      "category": "runtime",
+      "source_sha256": "3bf416fcc1fb2580d0a62a49d47dc8957c977f20b8e45fc7be8ec5b3c091c87b",
+      "import_sha256": "3bf416fcc1fb2580d0a62a49d47dc8957c977f20b8e45fc7be8ec5b3c091c87b"
+    },
+    {
+      "backend": "plesk",
+      "commit": "9fa6ceb59088c8dffba8cc36b77065c7f3eda37c",
+      "source": "integrations/whmcs/modules/addons/help4_disk_usage_plesk/lib/Report.php",
+      "destination": "modules/addons/help4_disk_usage_plesk/lib/Report.php",
+      "category": "runtime",
+      "source_sha256": "88ccb423203194b50ea3c8bdf261e6d1277b7e0f8cc7d0b23c629692faa2f1e9",
+      "import_sha256": "88ccb423203194b50ea3c8bdf261e6d1277b7e0f8cc7d0b23c629692faa2f1e9"
+    },
+    {
+      "backend": "plesk",
+      "commit": "9fa6ceb59088c8dffba8cc36b77065c7f3eda37c",
+      "source": "integrations/whmcs/modules/addons/help4_disk_usage_plesk/lib/Scope.php",
+      "destination": "modules/addons/help4_disk_usage_plesk/lib/Scope.php",
+      "category": "runtime",
+      "source_sha256": "9e438b2e5ed2d570744aa3b033af2a93aca37e53559e95fba098efffabfec9d9",
+      "import_sha256": "9e438b2e5ed2d570744aa3b033af2a93aca37e53559e95fba098efffabfec9d9"
+    },
+    {
+      "backend": "plesk",
+      "commit": "9fa6ceb59088c8dffba8cc36b77065c7f3eda37c",
+      "source": "integrations/whmcs/modules/addons/help4_disk_usage_plesk/lib/Transport.php",
+      "destination": "modules/addons/help4_disk_usage_plesk/lib/Transport.php",
+      "category": "runtime",
+      "source_sha256": "bced9ef5c465497437750970dfb1383d8624173a27b3acea5dc8a97faf81c81d",
+      "import_sha256": "bced9ef5c465497437750970dfb1383d8624173a27b3acea5dc8a97faf81c81d"
+    },
+    {
+      "backend": "plesk",
+      "commit": "9fa6ceb59088c8dffba8cc36b77065c7f3eda37c",
+      "source": "integrations/whmcs/modules/addons/help4_disk_usage_plesk/lib/View.php",
+      "destination": "modules/addons/help4_disk_usage_plesk/lib/View.php",
+      "category": "runtime",
+      "source_sha256": "27588e840fde6b45952eb831901cbddcb7f9edf704154f380ccc399a5ef0d52c",
+      "import_sha256": "27588e840fde6b45952eb831901cbddcb7f9edf704154f380ccc399a5ef0d52c"
+    },
+    {
+      "backend": "plesk",
+      "commit": "9fa6ceb59088c8dffba8cc36b77065c7f3eda37c",
+      "source": "integrations/whmcs/modules/addons/help4_disk_usage_plesk/templates/clientarea.tpl",
+      "destination": "modules/addons/help4_disk_usage_plesk/templates/clientarea.tpl",
+      "category": "runtime",
+      "source_sha256": "591d3f899a938b27fbf71d9dfefae606cd84480a7e52f25629ac036b83838334",
+      "import_sha256": "591d3f899a938b27fbf71d9dfefae606cd84480a7e52f25629ac036b83838334"
+    },
+    {
+      "backend": "cpanel",
+      "commit": "f1b1769cceded6f6f767122de3f66d8815671f4b",
+      "source": "LICENSE",
+      "destination": "LICENSE",
+      "category": "notice",
+      "source_sha256": "32dcb68245ab9d043f00f5c2f46a9221d058de54644bb364e154fb9414e7230e",
+      "import_sha256": "32dcb68245ab9d043f00f5c2f46a9221d058de54644bb364e154fb9414e7230e"
+    },
+    {
+      "backend": "plesk",
+      "commit": "9fa6ceb59088c8dffba8cc36b77065c7f3eda37c",
+      "source": "LICENSE",
+      "destination": "licenses/plesk-LICENSE",
+      "category": "notice",
+      "source_sha256": "32dcb68245ab9d043f00f5c2f46a9221d058de54644bb364e154fb9414e7230e",
+      "import_sha256": "32dcb68245ab9d043f00f5c2f46a9221d058de54644bb364e154fb9414e7230e"
+    },
+    {
+      "backend": "cpanel",
+      "commit": "f1b1769cceded6f6f767122de3f66d8815671f4b",
+      "source": "docs/whmcs-integration.md",
+      "destination": "docs/cpanel.md",
+      "category": "documentation",
+      "source_sha256": "d73d441d1c3be7f02a54f58378800ba792c910ad8f74dab3ae11344d03b60f27",
+      "import_sha256": "d73d441d1c3be7f02a54f58378800ba792c910ad8f74dab3ae11344d03b60f27"
+    },
+    {
+      "backend": "cpanel",
+      "commit": "f1b1769cceded6f6f767122de3f66d8815671f4b",
+      "source": "docs/file-workflows.md",
+      "destination": "docs/cpanel-file-workflows.md",
+      "category": "documentation",
+      "source_sha256": "2284ca91fb06cfca8a0a8314014e7ab677fe0b49aacb1519275619bcc4a4c5cd",
+      "import_sha256": "2284ca91fb06cfca8a0a8314014e7ab677fe0b49aacb1519275619bcc4a4c5cd"
+    },
+    {
+      "backend": "plesk",
+      "commit": "9fa6ceb59088c8dffba8cc36b77065c7f3eda37c",
+      "source": "docs/whmcs.md",
+      "destination": "docs/plesk.md",
+      "category": "documentation",
+      "source_sha256": "fa64a124b76c8b28c74c679fc92cd7595addd5557f7e3f2fdf6c1e7394e6f295",
+      "import_sha256": "fa64a124b76c8b28c74c679fc92cd7595addd5557f7e3f2fdf6c1e7394e6f295"
+    },
+    {
+      "backend": "cpanel",
+      "commit": "f1b1769cceded6f6f767122de3f66d8815671f4b",
+      "source": "tests/whmcs_tenant_isolation.php",
+      "destination": "tests/cpanel_tenant_isolation.php",
+      "category": "test",
+      "source_sha256": "b230edc0fe0a3ece27449088220c871262257786b613c475dd86a7b8e8268114",
+      "import_sha256": "f1d77d56c2702c2925f406bc612de558972312abc1426c95ae768a1b93b20f82"
+    },
+    {
+      "backend": "cpanel",
+      "commit": "f1b1769cceded6f6f767122de3f66d8815671f4b",
+      "source": "tests/whmcs_ssh_security.php",
+      "destination": "tests/cpanel_ssh_security.php",
+      "category": "test",
+      "source_sha256": "57354fd68b03fa14798299c9168a45df98709b61dce144aeab0f208d7d46d5e7",
+      "import_sha256": "29c8c3ec07a96b3c3869987ba2254e9cf0e1872afb9f383142a9e2a7bb8a852e"
+    },
+    {
+      "backend": "plesk",
+      "commit": "9fa6ceb59088c8dffba8cc36b77065c7f3eda37c",
+      "source": "tests/whmcs_scope.php",
+      "destination": "tests/plesk_scope.php",
+      "category": "test",
+      "source_sha256": "afc9cbbb7c35465bf4c38977148182722394bee4d7e392208f69fc7816001199",
+      "import_sha256": "6965f60c476a4fc81cc186e6f8387dcc2c4dab4f083c00244948990a5c05a09d"
+    },
+    {
+      "backend": "plesk",
+      "commit": "9fa6ceb59088c8dffba8cc36b77065c7f3eda37c",
+      "source": "tests/whmcs_report.php",
+      "destination": "tests/plesk_report.php",
+      "category": "test",
+      "source_sha256": "d70d5705f60545a9a92348be4f17fe14fd91f1b6024b1e24cf74af99ce5ae0db",
+      "import_sha256": "8fab01024a58de54f6a5ba8a105f7490ebcf05e557c6b1943272fd3a0509ae29"
+    },
+    {
+      "backend": "plesk",
+      "commit": "9fa6ceb59088c8dffba8cc36b77065c7f3eda37c",
+      "source": "tests/whmcs_transport.php",
+      "destination": "tests/plesk_transport.php",
+      "category": "test",
+      "source_sha256": "73a08f1226f985fc88dd688af9747e9c8c6d79ba3204caba41f313a3bfdbedc1",
+      "import_sha256": "55edbcf5178990ab0750a16f95f0edac0f58eb10d137b3979934480ff04740dd"
+    },
+    {
+      "backend": "plesk",
+      "commit": "9fa6ceb59088c8dffba8cc36b77065c7f3eda37c",
+      "source": "tests/whmcs_native.php",
+      "destination": "tests/plesk_native.php",
+      "category": "test",
+      "source_sha256": "f4b02e95be49d5e4d6c1e5a297d3ab76f1d4da78f8e7ae54af04cd56194ea649",
+      "import_sha256": "9aedb0b6cf8a61ebc0cd9ae687c93ffa02d8e8b63913a299c4c0389b5fbbe6cc"
+    },
+    {
+      "backend": "plesk",
+      "commit": "9fa6ceb59088c8dffba8cc36b77065c7f3eda37c",
+      "source": "tests/whmcs_health.php",
+      "destination": "tests/plesk_health.php",
+      "category": "test",
+      "source_sha256": "85b5344023b94018b5b36b0a9b17d536a9100ef09caa31a1cc0419ff8d7d51e3",
+      "import_sha256": "c911f5df9a693cebe26f24f97fd37dc21446f1a834512e005da81e63cbf12253"
+    },
+    {
+      "backend": "plesk",
+      "commit": "9fa6ceb59088c8dffba8cc36b77065c7f3eda37c",
+      "source": "tests/whmcs_services.php",
+      "destination": "tests/plesk_services.php",
+      "category": "test",
+      "source_sha256": "6b41b6c63802a27bde8c407403673ab3dbb20239b4befcd160d6ee322bd08111",
+      "import_sha256": "fba2b6258cf5d54422ec575fe212c07830862c192aee57674aa2a2627d13877d"
+    },
+    {
+      "backend": "plesk",
+      "commit": "9fa6ceb59088c8dffba8cc36b77065c7f3eda37c",
+      "source": "tests/fixtures/whmcs_report.py",
+      "destination": "tests/fixtures/whmcs_report.py",
+      "category": "test",
+      "source_sha256": "cbc59147485a4396e7a663f37164b6d44f08f6a70c4bf30004562ad0aeac71c8",
+      "import_sha256": "92666790ef945488bcf7cf9683313e294640a3c0845cd72a558e9d38a944c97a"
+    },
+    {
+      "backend": "plesk",
+      "commit": "9fa6ceb59088c8dffba8cc36b77065c7f3eda37c",
+      "source": "extension/plib/library/Access.php",
+      "destination": "tests/fixtures/plesk/extension/plib/library/Access.php",
+      "category": "native-contract-fixture",
+      "source_sha256": "4a515660101dae744e692c8aedf431f99b95afd453f963339d29f5fd9a6a42be",
+      "import_sha256": "4a515660101dae744e692c8aedf431f99b95afd453f963339d29f5fd9a6a42be"
+    },
+    {
+      "backend": "plesk",
+      "commit": "9fa6ceb59088c8dffba8cc36b77065c7f3eda37c",
+      "source": "extension/plib/library/Store.php",
+      "destination": "tests/fixtures/plesk/extension/plib/library/Store.php",
+      "category": "native-contract-fixture",
+      "source_sha256": "50b97d4bb23da569e91ecb2f63a0e45e8032ebca202a523d357544f9a1738974",
+      "import_sha256": "50b97d4bb23da569e91ecb2f63a0e45e8032ebca202a523d357544f9a1738974"
+    },
+    {
+      "backend": "plesk",
+      "commit": "9fa6ceb59088c8dffba8cc36b77065c7f3eda37c",
+      "source": "extension/plib/library/Report.php",
+      "destination": "tests/fixtures/plesk/extension/plib/library/Report.php",
+      "category": "native-contract-fixture",
+      "source_sha256": "09e582228caa0bf7635b49042ca26cec6a7d7e1e71aaf8a20e3e1ac92d033bbf",
+      "import_sha256": "09e582228caa0bf7635b49042ca26cec6a7d7e1e71aaf8a20e3e1ac92d033bbf"
+    },
+    {
+      "backend": "plesk",
+      "commit": "9fa6ceb59088c8dffba8cc36b77065c7f3eda37c",
+      "source": "extension/plib/library/Remote.php",
+      "destination": "tests/fixtures/plesk/extension/plib/library/Remote.php",
+      "category": "native-contract-fixture",
+      "source_sha256": "65963f147d7c3154f41358a9f277de1c8c363fb69b4fb06673341d720490ef4b",
+      "import_sha256": "65963f147d7c3154f41358a9f277de1c8c363fb69b4fb06673341d720490ef4b"
+    },
+    {
+      "backend": "plesk",
+      "commit": "9fa6ceb59088c8dffba8cc36b77065c7f3eda37c",
+      "source": "extension/plib/library/Process.php",
+      "destination": "tests/fixtures/plesk/extension/plib/library/Process.php",
+      "category": "native-contract-fixture",
+      "source_sha256": "b39c3d1ef0033f8f20eb6f616cd40473d94a759c3cac1795d8c2218c9c30d66d",
+      "import_sha256": "b39c3d1ef0033f8f20eb6f616cd40473d94a759c3cac1795d8c2218c9c30d66d"
+    },
+    {
+      "backend": "plesk",
+      "commit": "9fa6ceb59088c8dffba8cc36b77065c7f3eda37c",
+      "source": "extension/plib/hooks/ApiRpc.php",
+      "destination": "tests/fixtures/plesk/extension/plib/hooks/ApiRpc.php",
+      "category": "native-contract-fixture",
+      "source_sha256": "f5a2faaff58e7b425d70e3a962abb673c585c44a1be8aedb3d71bb88395395e8",
+      "import_sha256": "f5a2faaff58e7b425d70e3a962abb673c585c44a1be8aedb3d71bb88395395e8"
+    },
+    {
+      "backend": "plesk",
+      "commit": "9fa6ceb59088c8dffba8cc36b77065c7f3eda37c",
+      "source": "extension/plib/collector/scan.py",
+      "destination": "tests/fixtures/plesk/extension/plib/collector/scan.py",
+      "category": "native-contract-fixture",
+      "source_sha256": "c5a7cd820c7cda2b7388dc699b33007f56094c8e114bfd62ce8ebcab0bac7150",
+      "import_sha256": "c5a7cd820c7cda2b7388dc699b33007f56094c8e114bfd62ce8ebcab0bac7150"
+    }
+  ],
+  "runtime_rewritten": false,
+  "native_validation": false
+}

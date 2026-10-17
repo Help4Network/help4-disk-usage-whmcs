@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "distribution_version": "0.1.0",
+  "status": "development-preview",
+  "native_validation_complete": false,
+  "components": {
+    "cpanel": {
+      "module": "help4_disk_usage",
+      "version": "1.0.2",
+      "panel_repository": "https://github.com/Help4Network/help4-disk-usage",
+      "transport": "pinned-ssh",
+      "remote_deployment": true,
+      "tables": ["mod_help4_disk_usage_servers", "mod_help4_disk_usage_accounts", "mod_help4_disk_usage_events"]
+    },
+    "plesk": {
+      "module": "help4_disk_usage_plesk",
+      "version": "0.3.0",
+      "panel_repository": "https://github.com/Help4Network/help4-disk-usage-plesk",
+      "transport": "verified-https-xml-api",
+      "remote_deployment": false,
+      "tables": ["mod_help4_du_plesk_servers", "mod_help4_du_plesk_bindings", "mod_help4_du_plesk_limits"]
+    }
+  }
+}
