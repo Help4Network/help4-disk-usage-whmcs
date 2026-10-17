@@ -50,12 +50,21 @@ class PackageTests(unittest.TestCase):
         self.assertEqual(len(set(metadata['components']['cpanel']['tables']) & set(metadata['components']['plesk']['tables'])), 0)
         self.assertFalse(metadata['native_validation_complete'])
 
-    def test_native_fixtures_match_pinned_source(self):
+    def test_runtime_and_native_fixtures_match_pinned_source(self):
         rows = [row for row in json.loads((ROOT / 'UPSTREAM.json').read_text())['imports']
-                if row['category'] == 'native-contract-fixture']
-        self.assertEqual(len(rows), 7)
+                if row['category'] in ['runtime', 'native-contract-fixture']]
+        self.assertEqual(sum(row['category'] == 'runtime' for row in rows), 12)
+        self.assertEqual(sum(row['category'] == 'native-contract-fixture' for row in rows), 7)
         for row in rows:
-            self.assertEqual(hashlib.sha256((ROOT / row['destination']).read_bytes()).hexdigest(), row['source_sha256'])
+            with self.subTest(path=row['destination']):
+                self.assertEqual(hashlib.sha256((ROOT / row['destination']).read_bytes()).hexdigest(), row['source_sha256'])
+
+    def test_git_checkout_keeps_reviewed_lf_bytes(self):
+        paths = ['modules/addons/help4_disk_usage/hooks.php',
+                 'tests/fixtures/plesk/extension/plib/library/Access.php']
+        attributes = subprocess.check_output(['git', 'check-attr', '-z', 'eol', '--', *paths], cwd=ROOT)
+        self.assertEqual(attributes.split(b'\0')[:-1],
+                         [value.encode() for path in paths for value in [path, 'eol', 'lf']])
 
     def private_source(self, directory):
         target = Path(directory) / 'source'
