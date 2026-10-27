@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased Security Maintenance - 2026-10-27
+
+- Force HTTP/1.1 for Plesk XML requests to avoid the HTTP/2 upload path affected by CVE-2026-92392. This is an application mitigation, not a libcurl patch or proof of an exploitable deployment.
+- Reject failed cURL option configuration before sending any request, retaining strict TLS, no-proxy/no-redirect policy and existing deadlines/size limits.
+- Add transport regressions and a dated operator advisory covering separately maintained PHP, WHMCS, Plesk, phpseclib and libssh2 dependencies. Preserve original import hashes and identify the first intentional runtime change separately.
+- No addon activation, database change, production deployment, version bump or stable promotion.
+
 ## 0.1.0 Development Preview
 
 - Establish one standalone WHMCS repository for cPanel/WHM and Plesk Linux/Windows integrations.

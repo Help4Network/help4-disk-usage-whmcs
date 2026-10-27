@@ -53,7 +53,7 @@ A Git pull changes source only. Build, verify and deploy reviewed addon files se
 
 ## Public Review
 
-UPSTREAM.json records source commits/import hashes. Twelve runtime files were initially imported byte-for-byte. Seven native files under tests/fixtures/plesk are pinned offline protocol fixtures only, never production payloads. H4DU_PLESK_SOURCE can select an identified native checkout for tests, not a running panel. See [security policy](SECURITY.md) and [acceptance gates](docs/validation.md).
+UPSTREAM.json preserves the original source/import hashes for twelve initially byte-identical runtime files and separately records intentional post-import changes. The October 27 Plesk transport mitigation is the first such change; eleven runtime files and all seven native fixtures retain their original identity. Seven native files under tests/fixtures/plesk are pinned offline protocol fixtures only, never production payloads. H4DU_PLESK_SOURCE can select an identified native checkout for tests, not a running panel. See the [advisory review and host patch requirements](docs/security-advisories.md), [security policy](SECURITY.md) and [acceptance gates](docs/validation.md).
 
 No billing, tickets, chargebacks, customer provisioning, automatic fleet deployment or privileged deletion operation is added. No vendor endorsement, certification or marketplace approval is claimed.
 

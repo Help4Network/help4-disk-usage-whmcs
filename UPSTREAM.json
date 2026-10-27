@@ -299,6 +299,14 @@
       "import_sha256": "c5a7cd820c7cda2b7388dc699b33007f56094c8e114bfd62ce8ebcab0bac7150"
     }
   ],
-  "runtime_rewritten": false,
+  "runtime_rewritten": true,
+  "post_import_changes": [
+    {
+      "destination": "modules/addons/help4_disk_usage_plesk/lib/Transport.php",
+      "date": "2026-10-27",
+      "reason": "Force HTTP/1.1 for CVE-2026-92392 mitigation and reject failed cURL option configuration",
+      "reviewed_sha256": "397f6806cf0324165c32e4059608491a68f6964249658cf2cbbe35563c169ac3"
+    }
+  ],
   "native_validation": false
 }

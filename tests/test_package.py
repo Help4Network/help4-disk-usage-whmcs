@@ -50,14 +50,21 @@ class PackageTests(unittest.TestCase):
         self.assertEqual(len(set(metadata['components']['cpanel']['tables']) & set(metadata['components']['plesk']['tables'])), 0)
         self.assertFalse(metadata['native_validation_complete'])
 
-    def test_runtime_and_native_fixtures_match_pinned_source(self):
-        rows = [row for row in json.loads((ROOT / 'UPSTREAM.json').read_text())['imports']
+    def test_runtime_provenance_and_unchanged_native_fixtures(self):
+        provenance = json.loads((ROOT / 'UPSTREAM.json').read_text())
+        changes = {row['destination']: row for row in provenance['post_import_changes']}
+        changed_path = 'modules/addons/help4_disk_usage_plesk/lib/Transport.php'
+        self.assertTrue(provenance['runtime_rewritten'])
+        self.assertEqual(set(changes), {changed_path})
+        rows = [row for row in provenance['imports']
                 if row['category'] in ['runtime', 'native-contract-fixture']]
         self.assertEqual(sum(row['category'] == 'runtime' for row in rows), 12)
         self.assertEqual(sum(row['category'] == 'native-contract-fixture' for row in rows), 7)
         for row in rows:
             with self.subTest(path=row['destination']):
-                self.assertEqual(hashlib.sha256((ROOT / row['destination']).read_bytes()).hexdigest(), row['source_sha256'])
+                self.assertEqual(row['import_sha256'], row['source_sha256'])
+                expected = changes[row['destination']]['reviewed_sha256'] if row['destination'] in changes else row['source_sha256']
+                self.assertEqual(hashlib.sha256((ROOT / row['destination']).read_bytes()).hexdigest(), expected)
 
     def test_git_checkout_keeps_reviewed_lf_bytes(self):
         paths = ['modules/addons/help4_disk_usage/hooks.php',

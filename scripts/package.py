@@ -17,7 +17,7 @@ MODULES = {
 }
 DOCUMENTS = ("README.md", "CHANGELOG.md", "LICENSE", "licenses/plesk-LICENSE", "VERSION", "components.json", "SECURITY.md",
              "docs/install.md", "docs/upgrade.md", "docs/compatibility.md", "docs/validation.md",
-             "docs/cpanel.md", "docs/plesk.md", "docs/cpanel-file-workflows.md")
+             "docs/cpanel.md", "docs/plesk.md", "docs/cpanel-file-workflows.md", "docs/security-advisories.md")
 
 
 def safe(path, directory=False):

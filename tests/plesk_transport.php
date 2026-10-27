@@ -97,7 +97,7 @@ namespace {
 namespace Help4\DiskUsagePlesk {
     class FixtureCurl { public $url; public $options; }
     function curl_init($url) { $handle = new FixtureCurl(); $handle->url = $url; return $handle; }
-    function curl_setopt_array($handle, $options) { $handle->options = $options; $GLOBALS['curl_options'] = $options; return true; }
+    function curl_setopt_array($handle, $options) { $handle->options = $options; $GLOBALS['curl_options'] = $options; return !($GLOBALS['fail_curl_configuration'] ?? false); }
     function curl_exec($handle) {
         $GLOBALS['network_calls'] = ($GLOBALS['network_calls'] ?? 0) + 1;
         $raw = \bridge($handle->url, $handle->options[CURLOPT_POSTFIELDS]);
@@ -105,7 +105,7 @@ namespace Help4\DiskUsagePlesk {
         return $handle->options[CURLOPT_WRITEFUNCTION]($handle, $raw) === strlen($raw);
     }
     function curl_getinfo($handle, $option) { return 200; }
-    function curl_close($handle) { }
+    function curl_close($handle) { $GLOBALS['closed_handles'] = ($GLOBALS['closed_handles'] ?? 0) + 1; }
 }
 namespace {
     use Help4\DiskUsagePlesk\Transport;
@@ -147,7 +147,17 @@ namespace {
         check($options[CURLOPT_FOLLOWLOCATION] === false && $options[CURLOPT_MAXREDIRS] === 0, 'Redirect enabled');
         check($options[CURLOPT_CONNECTTIMEOUT] === 3 && $options[CURLOPT_TIMEOUT] === 20, 'Unbounded transport');
         check($options[CURLOPT_PROTOCOLS] === CURLPROTO_HTTPS && $options[CURLOPT_PROXY] === '', 'Unsafe protocol/proxy');
+        check($options[CURLOPT_HTTP_VERSION] === CURL_HTTP_VERSION_1_1, 'HTTP/2 upload path enabled');
         check($options[CURLOPT_WRITEFUNCTION](null, str_repeat('x', Transport::MAX_BYTES + 1)) === 0, 'Response cap ignored');
+        $calls = $GLOBALS['network_calls'];
+        $closed = $GLOBALS['closed_handles'];
+        $GLOBALS['fail_curl_configuration'] = true;
+        denied(function () use ($server, $config, $scope) {
+            Transport::call($server, $config['installation_id'], 'report', ['scope' => $scope]);
+        }, 'Failed security option setup accepted');
+        check($GLOBALS['network_calls'] === $calls, 'Request ran after failed option setup');
+        check($GLOBALS['closed_handles'] === $closed + 1, 'Failed option setup leaked handle');
+        $GLOBALS['fail_curl_configuration'] = false;
         foreach ([['owner_guid' => '33333333-3333-4333-8333-333333333333'], ['identity_binding' => str_repeat('a', 64)],
             ['username' => 'foreign'], ['domain' => 'foreign.example.test'], ['root' => '/foreign']] as $bad) {
             denied(function () use ($server, $config, $scope, $bad) {

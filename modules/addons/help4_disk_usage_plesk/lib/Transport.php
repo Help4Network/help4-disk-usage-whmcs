@@ -82,7 +82,9 @@ final class Transport
         }
         $body = '';
         $curl = curl_init($url);
-        curl_setopt_array($curl, [CURLOPT_POST => true, CURLOPT_POSTFIELDS => $xml, CURLOPT_HTTPHEADER => $headers,
+        // Avoid the HTTP/2 upload path affected by CVE-2026-92392; vendor libcurl updates remain required.
+        $configured = curl_setopt_array($curl, [CURLOPT_POST => true, CURLOPT_POSTFIELDS => $xml, CURLOPT_HTTPHEADER => $headers,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_FOLLOWLOCATION => false, CURLOPT_MAXREDIRS => 0, CURLOPT_SSL_VERIFYPEER => true,
             CURLOPT_SSL_VERIFYHOST => 2, CURLOPT_CONNECTTIMEOUT => 3, CURLOPT_TIMEOUT => self::DEADLINE,
             CURLOPT_PROTOCOLS => CURLPROTO_HTTPS, CURLOPT_REDIR_PROTOCOLS => CURLPROTO_HTTPS,
@@ -93,7 +95,7 @@ final class Transport
                 return strlen($part);
             }]);
         try {
-            if (!curl_exec($curl) || curl_getinfo($curl, CURLINFO_RESPONSE_CODE) !== 200) {
+            if (!$configured || !curl_exec($curl) || curl_getinfo($curl, CURLINFO_RESPONSE_CODE) !== 200) {
                 throw new \RuntimeException('Integration unavailable');
             }
             return $body;
